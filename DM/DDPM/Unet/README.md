@@ -1,1 +1,1 @@
-# DDPM的Unet结构实现
+# Unet架构的DDPM代码实现

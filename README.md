@@ -5,4 +5,5 @@
 ## 更新日志
 ### 2024/11/29
 - 创建仓库
-- DDPM的Unet实现
+- DM\DDPM\Unet目录结构梳理
+- 更新了DM\DDPM\Unet\models
