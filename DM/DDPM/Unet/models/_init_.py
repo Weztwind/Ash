@@ -5,11 +5,12 @@ from .embeddings import (
     LabelEmbeddings
 )
 from .attention import AttentionBlock
-from .blocks import ResnetBlock
-from .sampling import (
+from .blocks import (
+    ResnetBlock,
     DownSample,
     UpSample
 )
+
 
 # 定义对外公开的接口
 __all__ = [

@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 from .embeddings import SinusoidalPositionEmbeddings, LabelEmbeddings
-from .blocks import ResnetBlock
-from .sampling import DownSample, UpSample
+from .blocks import ResnetBlock, DownSample, UpSample
+
 
 
 class UNet(nn.Module):
