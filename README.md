@@ -12,4 +12,4 @@
 - 更新了DM\DDPM\Unet\tools
 - 更新了DM\DDPM\Unet\training
 ### 2024/12/04
-- 更新了目录结构，基于UNET的DDPM可通过DM\DDPM\Unet\main.py运行
+- 更新了目录结构，基于UNET的DDPM可通过DM\DDPM\ddpm_unet.py运行
