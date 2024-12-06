@@ -13,3 +13,5 @@
 - 更新了DM\DDPM\Unet\training
 ### 2024/12/04
 - 更新了目录结构，基于UNET的DDPM可通过DM\DDPM\ddpm_unet.py运行
+### 2024/12/06
+- 更新了LDM_VAE, 存在问题：VAE训练效果差
