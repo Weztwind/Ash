@@ -9,9 +9,10 @@ class TrainingConfig:
     BASE_PATH: str = "./results"
     DISCFACTOR: float = 1.0
     DISC_START: int = 1
-    LR: float = 1e-4
+    VAE_LR: float = 1e-5
+    DISC_LR: float = 1e-4
     EPS: float = 1e-8
     BETA1: float = 0.5
     BETA2: float = 0.9
-    NUM_EPOCHS: int = 400
+    NUM_EPOCHS: int = 1000
     BATCH_SIZE: int = 128

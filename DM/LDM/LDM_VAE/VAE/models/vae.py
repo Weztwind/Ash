@@ -123,7 +123,9 @@ class VAE(nn.Module):
 
         # 计算λ（lambda）的值
         λ = torch.norm(perceptual_loss_grads) / (torch.norm(gan_loss_grads) + 1e-4)  # 添加小数避免除零
+        # λ = torch.norm(gan_loss_grads) / (torch.norm(perceptual_loss_grads) + 1e-8)  # 添加小数避免除零
         λ = torch.clamp(λ, 0, 1e4).detach()  # 限制λ的范围并从计算图中分离
 
         # 返回调整后的λ值
-        return 0.8 * λ
+        # return 0.8 * λ
+        return  0.8 * λ

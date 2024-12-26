@@ -26,15 +26,29 @@ class LPIPS(nn.Module):
         ckpt = get_ckpt_path(name, "vgg_lpips")
         self.load_state_dict(torch.load(ckpt, map_location=torch.device("cpu")), strict=False)
 
+    # def forward(self, real_x, fake_x):
+    #     features_real = self.vgg(self.scaling_layer(real_x))
+    #     features_fake = self.vgg(self.scaling_layer(fake_x))
+    #     diffs = {}
+
+    #     for i in range(len(self.channels)):
+    #         diffs[i] = (norm_tensor(features_real[i]) - norm_tensor(features_fake[i])) ** 2
+
+    #     s = sum([spatial_average(self.lins[i].model(diffs[i])) for i in range(len(self.channels))])
+
+
+    #     return s
+
     def forward(self, real_x, fake_x):
         features_real = self.vgg(self.scaling_layer(real_x))
         features_fake = self.vgg(self.scaling_layer(fake_x))
-        diffs = {}
-
+        
+        layer_distances = []
         for i in range(len(self.channels)):
-            diffs[i] = (norm_tensor(features_real[i]) - norm_tensor(features_fake[i])) ** 2
+            diff = (norm_tensor(features_real[i]) - norm_tensor(features_fake[i])) ** 2
+            weighted = self.lins[i].model(diff)
+            avg = spatial_average(weighted)
+            layer_distances.append(torch.abs(avg))  # 每层的结果取绝对值
 
-        s = sum([spatial_average(self.lins[i].model(diffs[i])) for i in range(len(self.channels))])
-
-
+        s = sum(layer_distances)  # 和一定为正
         return s
