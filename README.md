@@ -15,3 +15,5 @@
 - 更新了目录结构，基于UNET的DDPM可通过DM\DDPM\ddpm_unet.py运行
 ### 2024/12/06
 - 更新了LDM_VAE, 存在问题：VAE训练效果差
+### 2024/12/26
+- 更新了LDM_VAE, 添加了不同loss函数：L1/L2 loss, perceptual loss, gan loss, kl loss。训练时需要把kl loss的权重设置得非常小 
